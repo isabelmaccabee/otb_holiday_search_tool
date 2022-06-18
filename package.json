@@ -7,7 +7,8 @@
     "build": "tsc",
     "test": "jest",
     "lint": "eslint 'src/**'",
-    "lint:fix": "eslint 'src/**' --fix"
+    "lint:fix": "eslint 'src/**' --fix",
+    "prepare": "husky install"
   },
   "author": "Isabel Maccabee",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.5.3",
+    "husky": "^8.0.1",
     "jest": "^28.1.1",
     "ts-jest": "^28.0.5",
     "typescript": "^4.7.4"
