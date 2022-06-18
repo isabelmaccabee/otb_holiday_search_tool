@@ -1,20 +1,4 @@
-type FlightInput = {
-    id: number,
-    airline: string,
-    from: string,
-    to: string,
-    price: number,
-    departure_date: string
-}
-
-type HotelInput = {
-    id: number,
-    name: string,
-    arrival_date: string,
-    price_per_night: number,
-    local_airports: string[],
-    nights: number
-}
+import { FlightInput, HotelInput } from './commonTypes';
 
 type Flight = {
     Id: number,
