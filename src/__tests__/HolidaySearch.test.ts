@@ -11,9 +11,9 @@ describe('HolidaySearch class', () => {
   test('should have InputQuery property that retrives search query', () => {
     expect(testHolidaySearch1.InputQuery).toBe('Departing from: MAN, Travelling to: AGP, Departing date: 2023-07-01, Duration: 7 day(s)');
   });
-  test('should have TopResult property that returns first valid flight/hotel combo', () => {
-    expect(testHolidaySearch1.TopResult.Flight.Id).toEqual(2);
-    expect(testHolidaySearch1.TopResult.Hotel.Id).toEqual(9);
+  test('should have FirstResult property that returns first valid flight/hotel combo', () => {
+    expect(testHolidaySearch1.FirstResult.Flight.Id).toEqual(2);
+    expect(testHolidaySearch1.FirstResult.Hotel.Id).toEqual(9);
   });
   test('should have Results property that returns list of valid flight/hotel combos with simple single result', () => {
     const validFlight = {

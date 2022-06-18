@@ -13,7 +13,7 @@ class HolidaySearch {
 
   private readonly DurationInDays: number;
 
-  public readonly TopResult: Result;
+  public readonly FirstResult: Result;
 
   public readonly Results: Result[];
 
@@ -27,8 +27,8 @@ class HolidaySearch {
     const validFlights = this.getValidFlights(flightsData);
     const validHotels = this.getValidHotels(hotelsData);
 
-    this.TopResult = new Result(validFlights[0], validHotels[0]);
-    this.Results = [this.TopResult];
+    this.FirstResult = new Result(validFlights[0], validHotels[0]);
+    this.Results = [this.FirstResult];
   }
 
   public get InputQuery():string {
