@@ -66,7 +66,6 @@ describe('HolidaySearch class', () => {
     };
 
     const validResult1 = new Result(validFlight1, validHotel);
-
     const validFlight2 = {
       id: 11,
       airline: 'First Class Air',
@@ -77,9 +76,10 @@ describe('HolidaySearch class', () => {
     };
 
     const validResult2 = new Result(validFlight2, validHotel);
+
     const validResults = [validResult1, validResult2];
 
     expect(testHolidaySearch2.Results).toHaveLength(2);
-    expect(testHolidaySearch2.Results).toEqual(validResults);
+    expect(testHolidaySearch2.Results).toEqual(expect.arrayContaining(validResults));
   });
 });
