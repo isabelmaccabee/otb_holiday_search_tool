@@ -16,7 +16,7 @@ class HolidaySearch {
   }
 
   public get InputQuery():string {
-    return `Departing from: ${this.DepartingFrom}, Travelling to: ${this.TravellingTo}`
+    return `Departing from: ${this.DepartingFrom}, Travelling to: ${this.TravellingTo}, `
         + `Departing date: ${this.DepartureDate}, Duration: ${this.DurationInDays} day(s)`;
   }
 }
