@@ -28,7 +28,13 @@ class HolidaySearch {
     const validHotels = this.getValidHotels(hotelsData);
 
     this.FirstResult = new Result(validFlights[0], validHotels[0]);
-    this.Results = [this.FirstResult];
+    const results: Result[] = [];
+    validFlights.forEach((flight) => {
+      validHotels.forEach((hotel) => {
+        results.push(new Result(flight, hotel));
+      });
+    });
+    this.Results = results;
   }
 
   public get InputQuery():string {
