@@ -7,9 +7,12 @@
     "build": "tsc",
     "test": "jest"
   },
-  "author": "",
+  "author": "Isabel Maccabee",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^28.1.2",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.5",
     "typescript": "^4.7.4"
   }
 }
