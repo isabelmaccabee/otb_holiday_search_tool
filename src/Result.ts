@@ -8,26 +8,38 @@ type FlightInput = {
 }
 
 type HotelInput = {
-    'id': number,
-    'name': string,
-    'arrival_date': string,
-    'price_per_night': number,
-    'local_airports': string[],
-    'nights': number
+    id: number,
+    name: string,
+    arrival_date: string,
+    price_per_night: number,
+    local_airports: string[],
+    nights: number
+}
+
+type Flight = {
+    Id: number,
+    DepartingFrom: string,
+    TravellingTo: string,
+    Price: number
 }
 
 class Result {
-  private readonly flight: FlightInput;
+  public readonly Flight: Flight;
 
   private readonly hotel: HotelInput;
 
   constructor(flightInput: FlightInput, hotelInput: HotelInput) {
-    this.flight = flightInput;
+    this.Flight = {
+        Id: flightInput.id,
+        DepartingFrom: flightInput.from,
+        TravellingTo: flightInput.to,
+        Price: flightInput.price
+    };
     this.hotel = hotelInput;
   }
 
   public get TotalPrice(): number {
-    return this.flight.price + (this.hotel.price_per_night * this.hotel.nights);
+    return this.Flight.Price + (this.hotel.price_per_night * this.hotel.nights);
   }
 }
 
