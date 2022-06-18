@@ -16,29 +16,27 @@ describe('HolidaySearch class', () => {
     expect(testHolidaySearch1.TopResult.Hotel.Id).toEqual(9);
   });
   test('should have Results property that returns list of valid flight/hotel combos with simple single result', () => {
-    const validFlight =   {
-      "id": 2,
-      "airline": "Oceanic Airlines",
-      "from": "MAN",
-      "to": "AGP",
-      "price": 245,
-      "departure_date": "2023-07-01"
-    }
+    const validFlight = {
+      id: 2,
+      airline: 'Oceanic Airlines',
+      from: 'MAN',
+      to: 'AGP',
+      price: 245,
+      departure_date: '2023-07-01',
+    };
 
     const validHotel = {
-      "id": 9,
-      "name": "Nh Malaga",
-      "arrival_date": "2023-07-01",
-      "price_per_night": 83,
-      "local_airports": ["AGP"],
-      "nights": 7
-      }
+      id: 9,
+      name: 'Nh Malaga',
+      arrival_date: '2023-07-01',
+      price_per_night: 83,
+      local_airports: ['AGP'],
+      nights: 7,
+    };
 
-      const validResult = new Result(validFlight, validHotel);
+    const validResult = new Result(validFlight, validHotel);
 
-    expect(testHolidaySearch1.Results).toHaveLength(1)
-    expect(testHolidaySearch1.Results).toEqual([validResult])
+    expect(testHolidaySearch1.Results).toHaveLength(1);
+    expect(testHolidaySearch1.Results).toEqual([validResult]);
   });
 });
-
-

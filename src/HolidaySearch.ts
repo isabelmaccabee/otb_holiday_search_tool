@@ -28,7 +28,7 @@ class HolidaySearch {
     const validHotels = this.getValidHotels(hotelsData);
 
     this.TopResult = new Result(validFlights[0], validHotels[0]);
-    this.Results = [this.TopResult]
+    this.Results = [this.TopResult];
   }
 
   public get InputQuery():string {
