@@ -13,8 +13,6 @@ class HolidaySearch {
 
   private readonly DurationInDays: number;
 
-  public readonly FirstResult: Result;
-
   public readonly Results: Result[];
 
   constructor(searchQuery:
@@ -27,7 +25,6 @@ class HolidaySearch {
     const validFlights = this.getValidFlights(flightsData);
     const validHotels = this.getValidHotels(hotelsData);
 
-    this.FirstResult = new Result(validFlights[0], validHotels[0]);
     const results: Result[] = [];
     validFlights.forEach((flight) => {
       validHotels.forEach((hotel) => {
@@ -40,6 +37,10 @@ class HolidaySearch {
   public get InputQuery():string {
     return `Departing from: ${this.DepartingFrom}, Travelling to: ${this.TravellingTo}, `
         + `Departing date: ${this.DepartureDate}, Duration: ${this.DurationInDays} day(s)`;
+  }
+
+  public get FirstResult(): Result {
+    return this.Results[0];
   }
 
   private getValidFlights(flights: FlightInput[]): FlightInput[] {
