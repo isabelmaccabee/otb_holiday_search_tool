@@ -30,10 +30,10 @@ class Result {
 
   constructor(flightInput: FlightInput, hotelInput: HotelInput) {
     this.Flight = {
-        Id: flightInput.id,
-        DepartingFrom: flightInput.from,
-        TravellingTo: flightInput.to,
-        Price: flightInput.price
+      Id: flightInput.id,
+      DepartingFrom: flightInput.from,
+      TravellingTo: flightInput.to,
+      Price: flightInput.price,
     };
     this.hotel = hotelInput;
   }
