@@ -5,7 +5,7 @@ import flightsData from './data/flights.json';
 import hotelsData from './data/hotels.json';
 
 class HolidaySearch {
-  private readonly DepartingFrom: string;
+  private readonly DepartingFrom: string[];
 
   private readonly TravellingTo: string;
 
@@ -16,7 +16,7 @@ class HolidaySearch {
   public readonly TopResult: Result;
 
   constructor(searchQuery:
-    { departingFrom: string, travellingTo: string, departureDate: string, duration: number}) {
+    { departingFrom: string[], travellingTo: string, departureDate: string, duration: number}) {
     this.DepartingFrom = searchQuery.departingFrom;
     this.TravellingTo = searchQuery.travellingTo;
     this.DepartureDate = searchQuery.departureDate;
@@ -35,7 +35,7 @@ class HolidaySearch {
 
   private getValidFlights(flights: FlightInput[]): FlightInput[] {
     return flights.filter((flight) => {
-      const correctFromAirport = flight.from === this.DepartingFrom;
+      const correctFromAirport = this.DepartingFrom.includes(flight.from);
       const correctToAirport = flight.to === this.TravellingTo;
       const correctDepartureDate = flight.departure_date === this.DepartureDate;
       return correctFromAirport && correctToAirport && correctDepartureDate;
