@@ -14,7 +14,8 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "jest"
+        "jest",
+        "json"
     ],
     "rules": {
     }
