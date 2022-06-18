@@ -82,4 +82,17 @@ describe('HolidaySearch class', () => {
     expect(testHolidaySearch2.Results).toHaveLength(2);
     expect(testHolidaySearch2.Results).toEqual(expect.arrayContaining(validResults));
   });
+  test('should have Results property that orders the flight/hotel combos by price (low to high)', () => {
+    const testHolidaySearch2 = new HolidaySearch({
+      departingFrom: ['LGW'],
+      travellingTo: 'AGP',
+      departureDate: '2023-07-01',
+      duration: 7,
+    });
+
+    const result1 = testHolidaySearch2.Results[0];
+    const result2 = testHolidaySearch2.Results[1];
+
+    expect(result1.TotalPrice).toBeLessThan(result2.TotalPrice);
+  });
 });

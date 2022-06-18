@@ -25,13 +25,7 @@ class HolidaySearch {
     const validFlights = this.getValidFlights(flightsData);
     const validHotels = this.getValidHotels(hotelsData);
 
-    const results: Result[] = [];
-    validFlights.forEach((flight) => {
-      validHotels.forEach((hotel) => {
-        results.push(new Result(flight, hotel));
-      });
-    });
-    this.Results = results;
+    this.Results = HolidaySearch.getResults(validFlights, validHotels);
   }
 
   public get InputQuery():string {
@@ -59,6 +53,23 @@ class HolidaySearch {
       const correctLength = hotel.nights === this.DurationInDays;
       return correctArrivalDate && correctAirports && correctLength;
     });
+  }
+
+  private static getResults(validFlights: FlightInput[], validHotels: HotelInput[]): Result[] {
+    const results: Result[] = [];
+    validFlights.forEach((flight) => {
+      validHotels.forEach((hotel) => {
+        results.push(new Result(flight, hotel));
+      });
+    });
+
+    results.sort((a, b) => {
+      if (a.TotalPrice < b.TotalPrice) return -1;
+      if (a.TotalPrice > b.TotalPrice) return 1;
+      return 0;
+    });
+
+    return results;
   }
 }
 
