@@ -15,6 +15,8 @@ class HolidaySearch {
 
   public readonly TopResult: Result;
 
+  public readonly Results: Result[];
+
   constructor(searchQuery:
     { departingFrom: string[], travellingTo: string, departureDate: string, duration: number}) {
     this.DepartingFrom = searchQuery.departingFrom;
@@ -26,6 +28,7 @@ class HolidaySearch {
     const validHotels = this.getValidHotels(hotelsData);
 
     this.TopResult = new Result(validFlights[0], validHotels[0]);
+    this.Results = [this.TopResult]
   }
 
   public get InputQuery():string {
