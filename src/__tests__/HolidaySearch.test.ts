@@ -11,7 +11,7 @@ describe('HolidaySearch class', () => {
   test('has InputQuery property that retrives search query', () => {
     expect(testHolidaySearch1.InputQuery).toBe('Departing from: MAN, Travelling to: AGP, Departing date: 2023-07-01, Duration: 7 day(s)');
   });
-  test('has FirstResult property that returns first valid flight/hotel combo', () => {
+  test('has FirstResult property that returns first valid flight/hotel combo: Customer #1', () => {
     expect(testHolidaySearch1.FirstResult.Flight.Id).toEqual(2);
     expect(testHolidaySearch1.FirstResult.Hotel.Id).toEqual(9);
   });
@@ -95,7 +95,7 @@ describe('HolidaySearch class', () => {
 
     expect(result1.TotalPrice).toBeLessThan(result2.TotalPrice);
   });
-  test('handles multiple departure airport options', () => {
+  test('handles multiple departure airport options: Customer #2', () => {
     const testHolidaySearch3 = new HolidaySearch({
       departingFrom: ['LTN', 'LGW'],
       travellingTo: 'PMI',
@@ -146,5 +146,19 @@ describe('HolidaySearch class', () => {
     expect(testHolidaySearch3.Results).toEqual(
       expect.arrayContaining([result1, result2, result3, result4]),
     );
+
+    expect(testHolidaySearch3.FirstResult.Flight.Id).toBe(6);
+    expect(testHolidaySearch3.FirstResult.Hotel.Id).toBe(5);
+  });
+  test('Customer #3', () => {
+    const testHolidaySearch4 = new HolidaySearch({
+      departingFrom: ['MAN', 'LTN', 'LGW', 'PMI', 'AGP'],
+      travellingTo: 'LPA',
+      departureDate: '2022-11-10',
+      duration: 14,
+    });
+
+    expect(testHolidaySearch4.FirstResult.Flight.Id).toBe(7);
+    expect(testHolidaySearch4.FirstResult.Hotel.Id).toBe(6);
   });
 });
