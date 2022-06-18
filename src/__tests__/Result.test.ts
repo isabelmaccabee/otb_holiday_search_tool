@@ -29,4 +29,9 @@ describe('Results class', () => {
     expect(testResult.Flight.DepartingFrom).toBe('MAN');
     expect(testResult.Flight.TravellingTo).toBe('TFS');
   });
+  test('should have Hotel properties: Id, Name, Price', () => {
+    expect(testResult.Hotel.Id).toBe(1);
+    expect(testResult.Hotel.Name).toBe('Iberostar Grand Portals Nous');
+    expect(testResult.Hotel.PricePerNight).toBe(100);
+  });
 });

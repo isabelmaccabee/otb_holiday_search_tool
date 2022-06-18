@@ -23,10 +23,17 @@ type Flight = {
     Price: number
 }
 
+type Hotel = {
+    Id: number,
+    Name: string,
+    PricePerNight: number,
+    Nights: number
+}
+
 class Result {
   public readonly Flight: Flight;
 
-  private readonly hotel: HotelInput;
+  public readonly Hotel: Hotel;
 
   constructor(flightInput: FlightInput, hotelInput: HotelInput) {
     this.Flight = {
@@ -35,11 +42,16 @@ class Result {
       TravellingTo: flightInput.to,
       Price: flightInput.price,
     };
-    this.hotel = hotelInput;
+    this.Hotel = {
+      Id: hotelInput.id,
+      Name: hotelInput.name,
+      PricePerNight: hotelInput.price_per_night,
+      Nights: hotelInput.nights,
+    };
   }
 
   public get TotalPrice(): number {
-    return this.Flight.Price + (this.hotel.price_per_night * this.hotel.nights);
+    return this.Flight.Price + (this.Hotel.PricePerNight * this.Hotel.Nights);
   }
 }
 
