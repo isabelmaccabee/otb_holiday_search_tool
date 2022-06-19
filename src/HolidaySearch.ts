@@ -64,6 +64,7 @@ class HolidaySearch {
     });
 
     results.sort((a, b) => {
+      // TotalPrice is a string in £X.XX format, need to turn this to a number to compare
       const price1 = Number(a.TotalPrice.slice(1));
       const price2 = Number(b.TotalPrice.slice(1));
       if (price1 < price2) return -1;
