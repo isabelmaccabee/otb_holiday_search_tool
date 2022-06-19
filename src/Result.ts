@@ -35,7 +35,8 @@ class Result {
   }
 
   public get TotalPrice(): string {
-    return `£${this.Flight.Price + (this.Hotel.PricePerNight * this.Hotel.Nights)}.00`;
+    const priceAsNum = this.Flight.Price + (this.Hotel.PricePerNight * this.Hotel.Nights);
+    return `£${priceAsNum.toFixed(2)}`;
   }
 }
 
