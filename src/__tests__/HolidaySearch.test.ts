@@ -90,10 +90,10 @@ describe('HolidaySearch class', () => {
       duration: 7,
     });
 
-    const result1 = testHolidaySearch2.Results[0];
-    const result2 = testHolidaySearch2.Results[1];
+    const price1 = Number(testHolidaySearch2.Results[0].TotalPrice.slice(1));
+    const price2 = Number(testHolidaySearch2.Results[1].TotalPrice.slice(1));
 
-    expect(result1.TotalPrice).toBeLessThan(result2.TotalPrice);
+    expect(price1).toBeLessThan(price2);
   });
   test('handles multiple departure airport options: Customer #2', () => {
     const testHolidaySearch3 = new HolidaySearch({

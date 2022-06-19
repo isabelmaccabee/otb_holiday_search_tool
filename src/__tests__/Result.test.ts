@@ -22,7 +22,7 @@ describe('Results class', () => {
   const testResult = new Result(testFlight, testHotel);
 
   test('should have TotalPrice property returning sum of flight + hotel', () => {
-    expect(testResult.TotalPrice).toBe(1170);
+    expect(testResult.TotalPrice).toBe('£1170.00');
   });
   test('should have flight properties: Id, DepartingFrom, TravellingTo', () => {
     expect(testResult.Flight.Id).toBe(1);

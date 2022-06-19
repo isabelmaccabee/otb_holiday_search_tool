@@ -34,8 +34,8 @@ class Result {
     };
   }
 
-  public get TotalPrice(): number {
-    return this.Flight.Price + (this.Hotel.PricePerNight * this.Hotel.Nights);
+  public get TotalPrice(): string {
+    return `£${this.Flight.Price + (this.Hotel.PricePerNight * this.Hotel.Nights)}.00`;
   }
 }
 

@@ -64,8 +64,10 @@ class HolidaySearch {
     });
 
     results.sort((a, b) => {
-      if (a.TotalPrice < b.TotalPrice) return -1;
-      if (a.TotalPrice > b.TotalPrice) return 1;
+      const price1 = Number(a.TotalPrice.slice(1));
+      const price2 = Number(b.TotalPrice.slice(1));
+      if (price1 < price2) return -1;
+      if (price1 > price2) return 1;
       return 0;
     });
 
