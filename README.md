@@ -1,6 +1,6 @@
 # Holiday Search Tool
 
-A Typescript library to generate search results from a holiday search query.
+A Typescript library to generate search results from a holiday search query.  
 
 ## Pre-requisites
 
@@ -12,5 +12,8 @@ A Typescript library to generate search results from a holiday search query.
 2. Navigate into the directory: `cd otb_holiday_search_tool`
 3. Install dependencies: `npm install`
 4. To run tests: `npm test`
-5. To run linting: `npm run lint`, or `npm run lint:fix` to automatically fix changes
+
+## Linting
+
+This project uses `eslint` for linting - to run, use the command: `npm run lint`.  Both tests and linting will be run automatically as a pre-commit hook using Husky.  To let eslint fix some of the errors for you, use the command: `npm run lint:fix`.
 
